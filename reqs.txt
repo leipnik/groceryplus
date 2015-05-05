@@ -1,5 +1,17 @@
-Requirements:
-- Create a new todo item
-- List todo items
-- Mark a todo as complete
-- Clear deleted items
+User stories:
+
+At home:
+- add to list when something is out (is the thing I need to add already on the list? Is it marked "needed" or "complete"?) if it's not there at all, create it
+- sometimes I want to add the same thing multiple times. Ie get three big vinegar containers 
+- scroll through my entire list of "all items" to jog my memory about what we normally buy. I want to see all checked / unchecked, and be able to add something to the current list
+- I want to be able to flag items that are absolutely required on the next trip, versus those we could do without if time is tight.
+
+At home or elsewhere:
+- I look at a recipe and want to import it, or at least add a few items that I don't already have at home or on my list. Ideally, if I import a recipe, my app tells me that some of the items are already checked, which probably means I have them at home. It allows me to unchecked them if I want. But the default is just "add all new/unchecked items"
+- this recipe could be on any food blog / recipe site
+
+At the store:
+I want the most up to date list possible, at least up to the time I entered the store. I want all the items ordered by the sections of my store. Since all stores have slightly different layouts, I would ideally be able to order the sections myself, and move food items between sections. I should be able to to easily see the flagged items on the list, brighter or more obvious than the unflagged ones. I would also like to be able to collapse the list to only the flagged things. As I go through my list, I get confirmation that I'm checking things off, and even 5 seconds to undo, since I might check the wrong thing by mistake and I would have no idea what that thing was. 
+
+After I check out:
+I want to keep anything remaining still on the list, since I probably still need it but I got lazy.

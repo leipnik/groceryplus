@@ -1,6 +1,6 @@
-<html ng-app="todoApp">
+<html ng-app="MainApp">
 <head>
-	<title>My Angular App!</title>
+	<title>Grocery Plus</title>
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -15,15 +15,23 @@
     <meta name="viewport" content="initial-scale=1" />
 
 
-	<script type="text/javascript" src="/javascripts/angularApp.js"></script>
+	<script type="text/javascript" src="/javascripts/app.js"></script>
+  <script type="text/javascript" src="/javascripts/app.routes.js"></script>
+
+  <script type="text/javascript" src="/javascripts/components/dialog/dialogController.js"></script>
+  <script type="text/javascript" src="/javascripts/components/dialog/dialogFactory.js"></script>
+
+  <script type="text/javascript" src="/javascripts/components/groceryItems/groceryItemsController.js"></script>
+  <script type="text/javascript" src="/javascripts/components/groceryItems/groceryItemsService.js"></script>
+
+  
+
+
 </head>
 
 
- <body ng-controller="MainCtrl" layout-padding>
-    
-
+ <body ng-controller="GroceryItemsCtrl" layout-padding>
  	<md-content>
-
 
    <form ng-submit="addItem()">
    		<md-input-container>

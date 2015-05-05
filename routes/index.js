@@ -2,62 +2,62 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var TodoItem = mongoose.model('TodoItem');
+var GroceryItem = mongoose.model('GroceryItem');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// list todo items
-router.get('/todos', function(req, res, next) {
-  TodoItem.find(function(err, todoItems){
+// list grocery items
+router.get('/items', function(req, res, next) {
+  GroceryItem.find(function(err, groceryItems){
   	if(err) {	return next(err); }
 
-  	res.json(todoItems);
+  	res.json(groceryItems);
   });
 });
-// new todo item
-router.post('/todos', function(req, res, next) {
-	var todoItem = new TodoItem(req.body);
+// new grocery item
+router.post('/items', function(req, res, next) {
+	var groceryItem = new GroceryItem(req.body);
 
-	todoItem.save(function(err, todoItem) {
+	groceryItem.save(function(err, groceryItem) {
 		if (err) { return next(err); }
 
-		res.json(todoItem);
+		res.json(groceryItem);
 	})
 });
-// todo item route parameter
-router.param('todo', function(req, res, next, id) {
-	var query = TodoItem.findById(id);
+// grocery item route parameter
+router.param('item', function(req, res, next, id) {
+	var query = GroceryItem.findById(id);
 
-	query.exec(function(err, todoItem) {
+	query.exec(function(err, groceryItem) {
 		if (err) { return next(err); }
-		if (!todoItem) { return next(new Error('can\'t find post with id ' + id)); }
+		if (!groceryItem) { return next(new Error('can\'t find post with id ' + id)); }
 
-		req.todoItem = todoItem;
+		req.groceryItem = groceryItem;
 		return next();
 	});
 });
-// todo item update (only title and done, not createdOn)
-router.post('/todos/:todo/update', function(req, res) {
-	var todoItem = new TodoItem(req.body);
-	req.todoItem.title = todoItem.title;
-	req.todoItem.done = todoItem.done;
-	req.todoItem.save(function(err, todoItem) {
+// grocery item update (only title and done, not createdOn)
+router.post('/items/:item/update', function(req, res) {
+	var groceryItem = new GroceryItem(req.body);
+	req.groceryItem.title = groceryItem.title;
+	req.groceryItem.done = groceryItem.done;
+	req.groceryItem.save(function(err, groceryItem) {
 		if(err) { return next(err); }
-		res.json(todoItem);
+		res.json(groceryItem);
 	});
 })
-// todo item update
-router.post('/todos/:todo/delete', function(req, res) {
-	var todoItem = new TodoItem(req.body);
-	TodoItem.findById(todoItem.id).remove().exec();
+// grocery item update
+router.post('/items/:item/delete', function(req, res) {
+	var groceryItem = new GroceryItem(req.body);
+	GroceryItem.findById(groceryItem.id).remove().exec();
 	res.end();
 })
-// todo item lookup
-router.get('/todos/:todo', function(req, res) {
-	res.json(req.todoItem);
+// grocery item lookup
+router.get('/items/:item', function(req, res) {
+	res.json(req.groceryItem);
 })
 
 module.exports = router;
